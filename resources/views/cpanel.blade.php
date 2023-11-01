@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/assets/img/tt2.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tempat Transit | CPanel</title>
 
     {{-- ===== Styles CSS ===== --}}
-    <link rel="stylesheet" href="assets/css/style.css">
+    {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
     @vite('resources/css/app.css')
 
 </head>
 <body>
-
     {{-- ============= Navigation ============== --}}
-    <div class="container">
+    <div class="">
         <div class="navigation">
             <ul>
                 <li>
                     <a href="">
                         <span class="icon">
-                            <img src="/assets/img/tt2.png" class="w-46">
+                            <img src="/assets/img/tt2 bp.png" class="w-46">
                         </span>
                         <span class="title">
                             <img src="/assets/img/tt1.png" class="w-46">
