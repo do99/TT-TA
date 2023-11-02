@@ -9,7 +9,7 @@ class SesiController extends Controller
 {
     function index()
     {
-        return view('login');
+        return view('/pages/login');
     }
     
     function login(Request $request){
@@ -31,7 +31,10 @@ class SesiController extends Controller
             return redirect('admin/projectmanager');
            }elseif (Auth::user()->role == 'Employee'){
             return redirect('admin/employee');
+           }elseif (Auth::user()->role == 'Marketing'){
+            return redirect('admin/marketing');
            }
+           
         }else{
                 return redirect('')->withErrors('Email atau Password tidak Sesuai !!!')->withInput();
         }

@@ -28,5 +28,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin/projectmanager', [AdminController::class, 'admin'])->middleware('userAkses:Project Manager');
     Route::get('/admin/employee', [AdminController::class, 'employee'])->middleware('userAkses:Employee');
+    Route::get('/admin/marketing', [AdminController::class, 'marketing'])->middleware('userAkses:Marketing');
+    Route::get('/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('/client', [AdminController::class, 'client']);
+
+
+    // Route::get('/');
     Route::get('/logout', [SesiController::class, 'logout']);
 });
