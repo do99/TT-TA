@@ -9,8 +9,10 @@
     <title>Tempat Transit | CPanel</title>
 
     {{-- ===== Styles CSS ===== --}}
-    {{-- <link rel="stylesheet" href="/assets/css/style.css"> --}}
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' }}">
+
 
 </head>
 {{-- <body> --}}
@@ -40,7 +42,20 @@
         </div>
 
     {{-- ==== Script ==== --}}
+    <script src="{{'/assets/js/jquery.js'}}"></script>
+    <script src="{{'/assets/js/jquery-datatables.js'}}"></script>
+    {{-- <script src="{{'/assets/js/datables.js'}}"></script> --}}
+    {{-- <script src="{{'/assets/js/tailwindcss.js'}}"></script> --}}
+
+
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script> --}}
     <script src="/assets/js/main.js"></script>
+        <script>
+            new DataTable('#example');
+        </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

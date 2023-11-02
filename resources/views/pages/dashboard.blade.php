@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 {{-- ==== Cards ==== --}}
 <div class="cardBox">
     <div class="card">
