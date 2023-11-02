@@ -2,53 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/assets/img/tt2.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tempat Transit | CPanel</title>
 
     {{-- ===== Styles CSS ===== --}}
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     @vite('resources/css/app.css')
 
 </head>
 <body>
-
     {{-- ============= Navigation ============== --}}
-    <div class="container">
+    <div class="">
         <div class="navigation">
             <ul>
                 <li>
                     <a href="">
                         <span class="icon">
-                            <img src="/assets/img/tt2.png" class="w-46">
+                            <img src="/assets/img/tt2 bp.png" class="">
                         </span>
                         <span class="title">
-                            <img src="/assets/img/tt1.png" class="w-46">
+                            <img src="/assets/img/tt1.png" class="">
                         </span>
                     </a>
                 </li>
-
+                @if(Auth::user()->role == 'Project Manager' or 'Employee')
                 <li>
                     <a href="">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="title"> Dashboard</span>
                     </a>
                 </li>
-
+                @if (Auth::user()->role != 'Employee')
                 <li>
                     <a href="">
                         <span class="icon"><ion-icon name="map-outline"></ion-icon></span> 
                         <span class="title"> Project & Order</span>
                     </a>
                 </li>
-
+                @endif
                 <li>
-                    <a href="">
+                    <a href="/logout">
                         <span class="icon"><ion-icon name="exit-outline"></ion-icon></span>
                         <span class="title">Sign-Out</span>
                     </a>
                 </li>
-
+                @endif
             </ul>
         </div>
 
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="user">
-                    <img src="assets/img/finn.jpg" alt="">
+                    <img src="/assets/img/finn.jpg" alt="">
                 </div>
             </div>
 
@@ -234,7 +234,7 @@
                 <table>
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -243,7 +243,7 @@
                     
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -252,7 +252,7 @@
 
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -261,7 +261,7 @@
 
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -270,7 +270,7 @@
                     
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -279,7 +279,7 @@
 
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -288,7 +288,7 @@
 
                     <tr>
                         <td width="60px">
-                            <div class="imgBox"><img src="assets/img/finn.jpg" ></div>
+                            <div class="imgBox"><img src="/assets/img/finn.jpg" ></div>
                         </td>
                         <td>
                             <h4>David Wilson <br> <span>Polandia</span></h4>
@@ -301,7 +301,7 @@
     </div>
 
     {{-- ==== Script ==== --}}
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SesiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/cpanel', function () {
-    return view('cpanel');
+Route::middleware(['guest'])->group(function(){
+    Route::get('/', [SesiController::class,'index'])->name('login');
+    Route::post('/', [SesiController::class, 'login']);
+});
+Route::get('/home', function(){
+    return redirect('/admin');
+
+});
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/projectmanager', [AdminController::class, 'admin'])->middleware('userAkses:Project Manager');
+    Route::get('/admin/employee', [AdminController::class, 'employee'])->middleware('userAkses:Employee');
+    Route::get('/logout', [SesiController::class, 'logout']);
 });
