@@ -19,7 +19,7 @@
         {{-- ==== Main ==== --}}
         <div class="main">
             <div class="topbar">
-                <div class="toggle">
+                <div class="toggle fixed">
                     <ion-icon name="menu"></ion-icon>
                 </div>
             

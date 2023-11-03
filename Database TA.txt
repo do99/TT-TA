@@ -12,8 +12,7 @@ Project
 -id_project
 -(fk) user_id
 -(fk) id_client
--details
--prices
+
 
 Client
 -id_client
@@ -21,6 +20,8 @@ Client
 -no
 -email
 -address
+-details
+-prices
 
 
 

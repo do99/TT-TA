@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     function index(){
-       return view('/pages/cpanel');
+       return view('/pages/dashboard');
     }
 
     function admin(){
-        return view('/pages/cpanel');
+        return view('/pages/dashboard');
     }
 
     function employee(){
-        return view('/pages/cpanel');
+        return view('/pages/dashboard');
     }
 
     function marketing(){
-        return view('/pages/cpanel');
+        return view('/pages/dashboard');
     }
 
     function dashboard(){
