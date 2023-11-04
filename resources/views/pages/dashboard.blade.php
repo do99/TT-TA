@@ -16,8 +16,10 @@
     
     <div class="card">
         <div>   
-            <div class="numbers">24</div>
+            {{-- @foreach($totclient) --}}
+            <div class="numbers">{{ $totclient }}</div>
             <div class="cardName">Client</div>
+            {{-- @endforeach --}}
         </div>
         <div class="iconBox">
             <ion-icon name="people-outline"></ion-icon>
@@ -53,9 +55,10 @@
             <h2>Recent Order</h2>
             <a href="#" class="btn">View All</a>
         </div>
-        <table>
+        <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <td>No</td>
                     <td>Client</td>
                     <td>Projects</td>
                     <td>Project Manager</td>
@@ -64,95 +67,17 @@
                 </tr>
             </thead>
             
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status pending">Pending</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status delivered">Delivered</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status inProgress">Progress</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status pending">Pending</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status delivered">Delivered</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status inProgress">Progress</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status pending">Pending</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status delivered">Delivered</span></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Rudi</td>
-                    <td>Mobile Apps</td>
-                    <td>Wilson</td>
-                    <td>El Gato</td>
-                    <td><span class="status inProgress">Progress</span></td>
-                </tr>
-            </tbody>
+           @foreach($clients as $client => $value)
+            <tr>
+                <td>{{$client +1}}
+                <td>{{$value->name}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{$value->status}}</td>
+                {{-- <td><td> --}}
+            </tr>
+            @endforeach
         </table>
     </div>
 

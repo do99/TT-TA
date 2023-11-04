@@ -17,6 +17,14 @@
                 <span class="title"> Dashboard</span>
             </a>
         </li>
+        @if (Auth::user()->role == 'Employee')
+        <li>
+            <a href="/project">
+                <span class="icon"><ion-icon name="newspaper-outline"></ion-icon></span>
+                <span class="title"> Project</span>
+            </a>
+        </li>
+        @endif
         @if (Auth::user()->role == 'Project Manager')
         <li>
             <a href="">
@@ -25,13 +33,14 @@
             </a>
         </li>
         @endif
-
+        @if (Auth::user()->role == 'Marketing')
         <li>
             <a href="/client">
                 <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                 <span class="title"> Client Order</span>
             </a>
         </li>
+        @endif
 
         <li>
             <a href="/logout">
