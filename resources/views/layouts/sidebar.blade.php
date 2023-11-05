@@ -32,6 +32,12 @@
                 <span class="title"> Project & Order</span>
             </a>
         </li>
+        <li>
+            <a href="/dashboard">
+                <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                <span class="title"> Client Approval</span>
+            </a>
+        </li>
         @endif
         @if (Auth::user()->role == 'Marketing')
         <li>
