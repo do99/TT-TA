@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('tb_client', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('email')->unique();
             $table->text('address');
             $table->text('details');
-            $table->integer('prices');
+            $table->string('prices');
             $table->integer('status');
             $table->timestamps();
         });

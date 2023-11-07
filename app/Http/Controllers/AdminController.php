@@ -13,22 +13,20 @@ class AdminController extends Controller
     //    return view('/pages/dashboard');
     // }
 
-    // function admin(){
-    //     return view('/pages/dashboard');
-    // }
-
-    // function employee(){
-    //     return view('/pages/dashboard');
-    // }
     function dashboard(){
         $clients = Client::all();
         $totclient = Client::count();
-        return view('pages.dashboard', compact('clients', 'totclient'));
+        $employees = User::count();
+        return view('pages.dashboard', compact('clients', 'totclient', 'employees'));
         
     }
 
     function project(){
-        return view('/pages/project');
+        return view('pages.project');
+    }
+    
+    function approval(){
+        return view('pages.approval');
     }
 
     function client(){

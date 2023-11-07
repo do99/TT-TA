@@ -33,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="/dashboard">
+            <a href="/admin/projectmanager/approvalclient">
                 <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                 <span class="title"> Client Approval</span>
             </a>

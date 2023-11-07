@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
 <body>
     {{-- ============= Navigation ============== --}}
     
-    @include('layouts/sidebar')
+    @include('layouts.sidebar')
         {{-- ==== Main ==== --}}
         <div class="main">
             <div class="topbar">

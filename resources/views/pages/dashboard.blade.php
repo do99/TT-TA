@@ -16,10 +16,8 @@
     
     <div class="card">
         <div>   
-            {{-- @foreach($totclient) --}}
             <div class="numbers">{{ $totclient }}</div>
             <div class="cardName">Client</div>
-            {{-- @endforeach --}}
         </div>
         <div class="iconBox">
             <ion-icon name="people-outline"></ion-icon>
@@ -38,7 +36,7 @@
 
     <div class="card">
         <div>   
-            <div class="numbers">21</div>
+            <div class="numbers">{{ $employees }}</div>
             <div class="cardName">Employees</div>
         </div>
         <div class="iconBox">
@@ -67,7 +65,7 @@
                 </tr>
             </thead>
             
-           @foreach($clients as $client => $value)
+            @foreach($clients as $client => $value)
             <tr>
                 <td>{{$client +1}}
                 <td>{{$value->name}}</td>
