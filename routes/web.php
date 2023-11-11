@@ -25,7 +25,7 @@ Route::get('/home', function(){
 });
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin', [AdminController::class, 'dashboard']);
     Route::get('/admin/projectmanager', [AdminController::class, 'dashboard'])->middleware('userAkses:Project Manager');
     Route::get('/admin/employee', [AdminController::class, 'dashboard'])->middleware('userAkses:Employee');
     Route::get('/admin/marketing', [AdminController::class, 'dashboard'])->middleware('userAkses:Marketing');
@@ -40,4 +40,8 @@ Route::middleware(['auth'])->group(function(){
 
     // Route::post('/');
     Route::post('/addclient', [AdminController::class, 'store'])->name('pages.store');
+
+    Route::post('/InsertProject', [AdminController::class, 'InsertProject']);
+
+    
 });

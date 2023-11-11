@@ -13,3 +13,19 @@
 <script>
     new DataTable('#example');
 </script>
+
+
+<script>
+    $(document).on('click', '.userView', function()
+{
+    var_this = $(this).parents('tr');
+    $('#v_id').val(_this.find('.id').text());
+    $('#v_name').val(_this.find('.name').text());
+    $('#v_email').val(_this.find('.email').text());
+    $('#v_phone').val(_this.find('.phone').text());
+    $('#v_prices').val(_this.find('.prices').text());
+    $('#v_address').val(_this.find('.address').text());
+    $('#v_details').val(_this.find('.details').text());
+
+});
+</script>

@@ -16,6 +16,10 @@ class Client extends Model
         'address',
         'details',
         'prices',
-        'status',
     ];
+
+    public function project()
+    {
+        return $this->hasMany(Project::class, 'user_id', 'id');
+    }
 }

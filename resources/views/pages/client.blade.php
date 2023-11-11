@@ -80,7 +80,7 @@
             </thead>
             @foreach($clients as $client => $value)
                 <tr>
-                    <td>{{$client +1}}
+                    <td>{{$client +1}}</td>
                     <td>{{$value->name}}</td>
                     <td>{{$value->phone}}</td>
                     <td>{{$value->email}}</td>

@@ -21,13 +21,13 @@
                             <td>Actions</td>
                         </tr>
                     </thead>
-                    
-
+                    @foreach ($clients as $client)
                     <tr>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

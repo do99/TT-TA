@@ -72,7 +72,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>{{$value->status}}</td>
+                <td></td>
+                {{-- <td>{{$value->status}}</td> --}}
                 {{-- <td><td> --}}
             </tr>
             @endforeach

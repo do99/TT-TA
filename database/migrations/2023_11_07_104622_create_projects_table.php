@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_client', function (Blueprint $table) {
+        Schema::create('project', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email')->unique();
-            $table->text('address');
-            $table->text('details');
-            $table->string('prices');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('tb_client');
+
+            $table->string('status');
+
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('projects');
     }
 };
