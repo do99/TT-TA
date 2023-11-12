@@ -21,11 +21,11 @@
                             <td>Actions</td>
                         </tr>
                     </thead>
-                    @foreach ($clients as $client)
+                    @foreach ($project as $client)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td >{{ $client->client->details }}</td>
+                        <td >{{ $client->taskdescription }}</td>
+                        <td >?</td>
                     </tr>
                     @endforeach
                 </table>

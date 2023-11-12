@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreign('client_id')->references('id')->on('tb_client');
 
             $table->string('status');
+            $table->string('taskdescription');
+
 
             $table->timestamps();
         });

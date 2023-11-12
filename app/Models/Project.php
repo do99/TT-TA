@@ -12,16 +12,35 @@ class Project extends Model
     protected $fillable = [
         'user_id',
         'project_id',
+        'pm_id',
         'status',
         'taskdescription',
     ];
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'pm_id', 'id');
     }
 
     public function client(){
         return $this->belongsTo(Client::class, 'client_id', 'id');
     }
+
+    // public function showProject($id){
+    //     $project = Project::findOrFail($id);
+
+    //     $client = $project->client;
+
+    //     $clientName = $client->name;
+    //     $clientPhone = $client->phone;
+    //     $clientAddress = $client->address;
+    //     $clientDetails = $client->details;
+    //     $clientPrices = $client->prices;
+
+    //     return view('views.project', [
+    //         'project' => $project,
+    //         'client' => $client,
+    //     ]);
+    // }
 }
 

@@ -34,8 +34,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/client', [AdminController::class, 'client'])->name('pages.client');
     Route::get('/admin/projectmanager/approvalclient', [AdminController::class, 'approval'])->name('pages.approval');
 
-
-
     Route::get('/logout', [SesiController::class, 'logout']);
 
     // Route::post('/');

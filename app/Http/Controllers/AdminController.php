@@ -16,16 +16,24 @@ class AdminController extends Controller
 
     function dashboard(){
         $clients = Client::all();
+        $totproject = Project::count();
         $totclient = Client::count();
         $employees = User::count();
-        return view('pages.dashboard', compact('clients', 'totclient', 'employees'));
+        $projects = Project::with('user')->get();
+        $clientpro = Client::with('project')->get();
+        $userpro = User::with('project')->get();
+        return view('pages.dashboard', compact('clients', 'totclient', 'employees', 'projects', 'clientpro', 'userpro', 'totproject'));
         
     }
 
     function project(){
+        $userID = Auth::id();
         $clients = User::all();
-        // $projects = Project::with('');
-        return view('pages.project', compact('clients'));
+        $project = Project::where('user_id', $userID)->get();
+        $projects = Project::with('user')->get();
+        $clientpro = Client::with('project')->get();
+        $userpro = User::with('project')->get();
+        return view('pages.project', compact('clients', 'projects', 'clientpro', 'userpro', 'project'));
     }
     
     function approval(){
@@ -43,18 +51,7 @@ class AdminController extends Controller
     }
 
     function store(Request $request){
-        // dd($request);
-        // $data = $request->validate([
-        //     'name'=>'required',
-        //     'phone'=>'required',
-        //     'email'=>'required',
-        //     'address'=>'required',
-        //     'details'=>'required',
-        //     'prices'=>'required',
-        //     'details'=>'required',
-        //     'status'=>'required',
 
-        // ]);
         $insert = new Client;
         $insert->name = $request->name;
         $insert->phone = $request->phone;
@@ -69,24 +66,22 @@ class AdminController extends Controller
         return redirect(route('pages.client'));
     }
 
-        public function show($id)
-        {
-            $clients = Client::findOrFail($id);
-
-            return view('show');
-        }
 
 
         public function InsertProject(Request $request){
-            
+
 
             $insert = New Project;
             $insert->user_id = $request->programmer;
             $insert->client_id = $request->v_id;
-            $insert->status = $request->status;
+            $insert->status = $request->status ?: 'On Progress';
+            $insert->taskdescription = $request->taskdescription ?: '-';
 
             $insert->save();
-            
+
+
+            return redirect(route('pages.approval'));
+
             // dd($insert);
             
 

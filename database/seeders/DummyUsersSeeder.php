@@ -32,6 +32,18 @@ class DummyUsersSeeder extends Seeder
                 'role'=>'Marketing',
                 'password'=>bcrypt('rudi')
             ],
+            [
+                'name'=>'Jumanji',
+                'email'=>'jumanji@gmail.com',
+                'role'=>'Employee',
+                'password'=>bcrypt('jumanji')
+            ],
+            [
+                'name'=>'Mardianto',
+                'email'=>'mardianto@gmail.com',
+                'role'=>'Project Manager',
+                'password'=>bcrypt('mardianto')
+            ],
             
         ];
 

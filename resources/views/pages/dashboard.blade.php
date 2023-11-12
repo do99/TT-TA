@@ -6,7 +6,7 @@
 <div class="cardBox">
     <div class="card">
         <div>   
-            <div class="numbers">24</div>
+            <div class="numbers">{{$totproject}}</div>
             <div class="cardName">Projects</div>
         </div>
         <div class="iconBox">
@@ -26,7 +26,7 @@
 
     <div class="card">
         <div>   
-            <div class="numbers">32</div>
+            <div class="numbers">?</div>
             <div class="cardName">Task</div>
         </div>
         <div class="iconBox">
@@ -59,19 +59,17 @@
                     <td>No</td>
                     <td>Client</td>
                     <td>Projects</td>
-                    <td>Project Manager</td>
                     <td>Programer</td>
                     <td>Status</td>
                 </tr>
             </thead>
             
-            @foreach($clients as $client => $value)
+            @foreach($projects as $dash => $value)
             <tr>
-                <td>{{$client +1}}
-                <td>{{$value->name}}</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$dash +1}}
+                <td>{{$value->client->name}}</td>
+                <td>{{$value->client->details}}</td>
+                <td>{{$value->user->name}}</td>
                 <td></td>
                 {{-- <td>{{$value->status}}</td> --}}
                 {{-- <td><td> --}}
