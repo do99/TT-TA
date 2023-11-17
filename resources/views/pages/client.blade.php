@@ -69,24 +69,28 @@
         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>No</th>
+                    {{-- <th>No</th> --}}
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Address</th>
                     <th>Details</th>
                     <th>Prices</th>
+                    <th style="display: none;">Prices</th>
                 </tr>
             </thead>
-            @foreach($clients as $client => $value)
+           
+            @foreach($data as $client => $value)
                 <tr>
-                    <td>{{$client +1}}</td>
-                    <td>{{$value->name}}</td>
-                    <td>{{$value->phone}}</td>
-                    <td>{{$value->email}}</td>
-                    <td>{{$value->address}}</td>
-                    <td>{{$value->details}}</td>
-                    <td>{{$value->prices}}</td>
+                    {{-- <td>{{$client + 1}}</td> --}}
+                    <td>{{$value->client->name}}</td>
+                    <td>{{$value->client->phone}}</td>
+                    <td>{{$value->client->email}}</td>
+                    <td>{{$value->client->address}}</td>
+                    <td>{{$value->client->details}}</td>
+                    <td>{{$value->client->prices}}</td>
+                    <td style="display: none;">{{$value->client->status}}</td>
+
                 </tr>
             @endforeach
         </table>

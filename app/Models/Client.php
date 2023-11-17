@@ -21,5 +21,8 @@ class Client extends Model
     public function project()
     {
         return $this->hasMany(Project::class, 'user_id', 'id');
+        return $this->belongsTo(Project::class, 'status', 'id');
+
+
     }
 }

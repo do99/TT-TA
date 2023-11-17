@@ -16,14 +16,18 @@ class AdminController extends Controller
 
     function dashboard(){
         $clients = Client::all();
-        $totproject = Project::count();
+        $totproject = Project::where('status', 'On Progress')->count();
         $totclient = Client::count();
-        $employees = User::count();
-        $projects = Project::with('user')->get();
+        $employees = User::where('id', '!=', 6)->count();
+        $projects = Project::where('status', 'On Progress')->get();
         $clientpro = Client::with('project')->get();
         $userpro = User::with('project')->get();
+
+        // dd($totproject);
+        
         return view('pages.dashboard', compact('clients', 'totclient', 'employees', 'projects', 'clientpro', 'userpro', 'totproject'));
         
+
     }
 
     function project(){
@@ -37,7 +41,7 @@ class AdminController extends Controller
     }
     
     function approval(){
-        $clients = Client::all();
+        $clients = Client::where('status', 'Pending')->get();
         $roles = User::all();
         $rolesUser = User::first()->id;
         // $users = Client::findOrFail();
@@ -47,7 +51,10 @@ class AdminController extends Controller
     function client(){
         $roles = User::all();
         $clients = Client::all();
-        return view('pages.client', ['clients' => $clients, 'roles' => $roles]);
+        $rolesID = Project::where('client_id')->get();
+        $data = Project::where('status','Pending')->get();
+        // dd($data);
+        return view('pages.client', compact('clients', 'roles' , 'data'));
     }
 
     function store(Request $request){
@@ -59,8 +66,34 @@ class AdminController extends Controller
         $insert->address = $request->address;
         $insert->details = $request->details;
         $insert->prices = $request->prices;
+        $insert->status = $request->status ?: 'Pending';
+
 
         $insert->save();
+        $getProject = 0;
+        $getUser = 0;
+        $postPro = Client::where('email', $request->email)->get();
+        $userID = User::where('id', 6)->get();
+        
+        foreach($postPro as $data){
+            $getProject = $data->id;
+        }
+
+        foreach($userID as $data){
+            $getUser = $data->id;
+        }
+       
+        // dd($userID);
+
+        $Postproject = new Project;
+        $Postproject->user_id = $getUser;
+        $Postproject->client_id = $getProject;
+        $Postproject->status = "Pending";
+        $Postproject->taskDescription = "-";
+
+
+        $Postproject->save();
+
         // $newClient = Client::create($data);
 
         return redirect(route('pages.client'));
@@ -69,16 +102,29 @@ class AdminController extends Controller
 
 
         public function InsertProject(Request $request){
+            // dd($request);
+            $id = $request->v_id;
+            $affected = Project::where('client_id', $id)
+              ->update([
+                'user_id'=> $request->programmer,
+                'status'=> 'On Progress'
+              ]);
 
+            $updateClient = Client::where('id', $id)
+              ->update([
+                'status' => 'On Progress'
+              ]);
 
-            $insert = New Project;
-            $insert->user_id = $request->programmer;
-            $insert->client_id = $request->v_id;
-            $insert->status = $request->status ?: 'On Progress';
-            $insert->taskdescription = $request->taskdescription ?: '-';
+            //   dd($affected);
 
-            $insert->save();
+            // $insert = New Project;
+            // $insert->user_id = $request->programmer;
+            // $insert->client_id = $request->v_id;
+            // $insert->status = 'On Progress';
+            // $insert->taskdescription = '-';
 
+            // $insert->update();
+            // dd($request);
 
             return redirect(route('pages.approval'));
 

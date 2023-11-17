@@ -70,7 +70,7 @@
                 <td>{{$value->client->name}}</td>
                 <td>{{$value->client->details}}</td>
                 <td>{{$value->user->name}}</td>
-                <td></td>
+                <td>{{$value->status}}</td>
                 {{-- <td>{{$value->status}}</td> --}}
                 {{-- <td><td> --}}
             </tr>

@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('client_id');
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('client_id')->references('id')->on('tb_client');
-
+            
             $table->string('status');
             $table->string('taskdescription');
 
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('tb_client');
 
             $table->timestamps();
         });

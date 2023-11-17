@@ -19,7 +19,10 @@ return new class extends Migration
             $table->text('address');
             $table->text('details');
             $table->string('prices');
+            $table->string('status');
             $table->timestamps();
+
+
         });
     }
 

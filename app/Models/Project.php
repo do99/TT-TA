@@ -12,18 +12,17 @@ class Project extends Model
     protected $fillable = [
         'user_id',
         'project_id',
-        'pm_id',
         'status',
         'taskdescription',
     ];
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
-        return $this->belongsTo(User::class, 'pm_id', 'id');
     }
 
     public function client(){
         return $this->belongsTo(Client::class, 'client_id', 'id');
+
     }
 
     // public function showProject($id){

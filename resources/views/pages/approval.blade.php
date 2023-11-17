@@ -134,15 +134,14 @@
                                 <th>Email</th>
                                 <th>Order Since</th>
                                 <th>Details</th>
-                                <th style="display:none;">ID</th>
-                                <th style="display:none;">ID</th>
-                                <th style="display:none;">ID</th>
+                                <th style="display:none;"></th>
+                                <th style="display:none;"></th>
+                                <th style="display:none;"></th>
 
                             </tr>
                         </thead>
                         @foreach($clients as $client)
                             <tr>
-                                
                                 <td style="display:none;" class="id">{{$client->id }}</td>
                                 <td class="name">{{ $client->name }}</td>
                                 <td class="phone">{{ $client->phone }}</td>
